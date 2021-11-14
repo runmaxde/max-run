@@ -51,6 +51,7 @@ export function getArticleList() {
     } catch (e) { return null }
   })
 
+  // @ts-ignore-next-line
   const cleanArticleList = articleList.filter(article => article !== null).sort((a, b) => { return moment(b.createdAt) - moment(a.createdAt) })
 
   // TODO: remove this JSON hack
