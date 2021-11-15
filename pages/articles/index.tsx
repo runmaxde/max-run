@@ -2,7 +2,8 @@ import Link from "next/link"
 import { getArticleList } from "@/lib/markdown"
 import { getRelativeDate } from "@/lib/date"
 import { useRouter } from "next/router"
-import { useState } from "react"
+import React, { useState } from "react"
+import Meta from "@/comp/Meta"
 
 export function getStaticProps() {
   return {
@@ -15,7 +16,8 @@ export default function ArticlesHome({ articleList }: { articleList: Array<{ slu
   const [search, setSearch] = useState("")
 
   return (
-    <div className="max-w-xl p-3 m-auto">
+    <>
+      <Meta pageTitle="Articles" />
       <h1 className="mt-10 text-5xl font-black">Articles</h1>
 
       <div className="mt-10">
@@ -30,7 +32,7 @@ export default function ArticlesHome({ articleList }: { articleList: Array<{ slu
       }).map((article) => {
         return <ArticleCard key={article.slug} article={article} />
       })}
-    </div>
+    </>
   )
 }
 

@@ -3,6 +3,7 @@ import { getRelativeDate } from "@/lib/date"
 import { P, H1, H2, H3, Table, TheCodeBlock, MdLink, MdLi } from "@/comp/UI"
 import { MDXRemote } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
+import Meta from "@/comp/Meta"
 
 export function getStaticPaths() {
   const paths = getArticleList().map(article => {
@@ -41,13 +42,14 @@ export default function ArticleItem({ article, mdx }) {
   }
 
   return (
-    <div className="max-w-xl p-3 m-auto">
+    <>
+      <Meta pageTitle={article.title} />
       <h1 className="mt-10 text-4xl font-black">{article.title}</h1>
       <div className="flex justify-between mt-4 mb-12 text-xs text-gray-400 select-none">
         <span>Max / {getRelativeDate(article.createdAt)}</span>
         <span>{article.clickCount} views</span>
       </div>
       <MDXRemote {...mdx} components={components} />
-    </div>
+    </>
   )
 }
