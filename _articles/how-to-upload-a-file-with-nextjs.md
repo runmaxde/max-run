@@ -1,3 +1,9 @@
+---
+title: How to upload a file with nextjs
+tags: nextjs 
+summary: 
+---
+
 # How to upload a file with nextjs
 
 ### Upload to the servers filesystem
