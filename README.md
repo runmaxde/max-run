@@ -1,1 +1,1 @@
-# create-next-app-template
+# Personal Blog and Knowledge-Base
