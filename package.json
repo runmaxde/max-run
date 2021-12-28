@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@types/react": "^17.0.34",
@@ -15,7 +16,8 @@
     "eslint-config-next": "^12.0.3",
     "postcss": "^8.3.11",
     "tailwindcss": "^2.2.19",
-    "typescript": "^4.4.4"
+    "typescript": "^4.4.4",
+    "husky": "^7.0.0"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
