@@ -21,19 +21,15 @@ export default function HiddenTools({
     <>
       <Meta pageTitle="Hidden-Tools" />
       <h1 className="mt-10 text-5xl font-black">Hidden-Tools</h1>
-      {hiddenTools.map((item) => (
-        <ToolItem key={item.head} item={item} />
+      {hiddenTools.map((item: IHiddenTool) => (
+        <div key={item.head} className="my-10">
+          <h3 className="text-2xl font-bold">{item.head}</h3>
+          <p className="my-1">{item.text}</p>
+          <a href={item.link} className="text-blue-600">
+            {item.link}
+          </a>
+        </div>
       ))}
     </>
-  )
-}
-
-function ToolItem({ item }: { item: IHiddenTool }) {
-  return (
-    <div>
-      <h3>{item.head}</h3>
-      <p>{item.text}</p>
-      <a href={item.link}>{item.link}</a>
-    </div>
   )
 }
