@@ -53,10 +53,10 @@ export function getArticleList() {
     }
   })
 
-  // @ts-ignore-next-line
   const cleanArticleList = articleList
     .filter((article) => article !== null)
     .sort((a, b) => {
+      // @ts-ignore-next-line
       return moment(b.createdAt) - moment(a.createdAt)
     })
 
