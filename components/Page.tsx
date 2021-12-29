@@ -1,4 +1,4 @@
-import Navigation from "./Navigation"
+import Navigation from "./Navigation";
 
 export default function Page({ children }) {
   return (
@@ -6,5 +6,5 @@ export default function Page({ children }) {
       <Navigation />
       {children}
     </div>
-  )
+  );
 }

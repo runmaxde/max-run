@@ -1,19 +1,28 @@
-import Link from "next/link"
-import { getArticleList } from "@/lib/markdown"
-import { getRelativeDate } from "@/lib/date"
-import { useRouter } from "next/router"
-import React, { useState } from "react"
-import Meta from "@/comp/Meta"
+import Link from "next/link";
+import { getArticleList } from "@/lib/markdown";
+import { getRelativeDate } from "@/lib/date";
+import { useRouter } from "next/router";
+import React, { useState } from "react";
+import Meta from "@/comp/Meta";
 
 export function getStaticProps() {
   return {
-    props: { articleList: getArticleList() }
-  }
+    props: { articleList: getArticleList() },
+  };
 }
 
-
-export default function ArticlesHome({ articleList }: { articleList: Array<{ slug: "String", title: "String", summary: "String", createdAt: "String", clickCount: "Number" }> }) {
-  const [search, setSearch] = useState("")
+export default function ArticlesHome({
+  articleList,
+}: {
+  articleList: Array<{
+    slug: "String";
+    title: "String";
+    summary: "String";
+    createdAt: "String";
+    clickCount: "Number";
+  }>;
+}) {
+  const [search, setSearch] = useState("");
 
   return (
     <>
@@ -22,23 +31,36 @@ export default function ArticlesHome({ articleList }: { articleList: Array<{ slu
 
       <div className="mt-10">
         <input
-          type="text" placeholder="Search" onChange={(e) => setSearch(e.target.value)}
+          type="text"
+          placeholder="Search"
+          onChange={(e) => setSearch(e.target.value)}
           className="w-full p-2 pl-6 border border-gray-400 rounded-md focus:border-white focus:outline-none bg-dark"
         />
       </div>
-      {articleList.filter((article) => {
-        const fullContent = `${article.title} ${article.summary}`
-        return fullContent.toLowerCase().includes(search.toLowerCase())
-      }).map((article) => {
-        return <ArticleCard key={article.slug} article={article} />
-      })}
+      {articleList
+        .filter((article) => {
+          const fullContent = `${article.title} ${article.summary}`;
+          return fullContent.toLowerCase().includes(search.toLowerCase());
+        })
+        .map((article) => {
+          return <ArticleCard key={article.slug} article={article} />;
+        })}
     </>
-  )
+  );
 }
 
-
-function ArticleCard({ article }: { article: { slug: "String", title: "String", summary: "String", createdAt: "String", clickCount: "Number" } }) {
-  const { pathname } = useRouter()
+function ArticleCard({
+  article,
+}: {
+  article: {
+    slug: "String";
+    title: "String";
+    summary: "String";
+    createdAt: "String";
+    clickCount: "Number";
+  };
+}) {
+  const { pathname } = useRouter();
 
   return (
     <>
@@ -53,5 +75,5 @@ function ArticleCard({ article }: { article: { slug: "String", title: "String", 
         </a>
       </Link>
     </>
-  )
+  );
 }

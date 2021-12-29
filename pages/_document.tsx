@@ -1,10 +1,10 @@
-import Page from '@/comp/Page'
-import Document, { Html, Head, Main, NextScript } from 'next/document'
+import Page from "@/comp/Page";
+import Document, { Html, Head, Main, NextScript } from "next/document";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
-    const initialProps = await Document.getInitialProps(ctx)
-    return { ...initialProps }
+    const initialProps = await Document.getInitialProps(ctx);
+    return { ...initialProps };
   }
 
   render() {
@@ -18,8 +18,8 @@ class MyDocument extends Document {
           </Page>
         </body>
       </Html>
-    )
+    );
   }
 }
 
-export default MyDocument
+export default MyDocument;

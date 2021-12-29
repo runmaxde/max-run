@@ -1,23 +1,23 @@
-import matter from 'gray-matter'
-import fs from "fs"
-import moment from 'moment';
+import matter from "gray-matter";
+import fs from "fs";
+import moment from "moment";
 
-const PATH_OF_ARTICLES = "./_articles"
+const PATH_OF_ARTICLES = "./_articles";
 
 class TranslateMarkdown {
   slug: string;
   createdAt: any;
 
-  fileHeader: { [key: string]: any; };
+  fileHeader: { [key: string]: any };
   fileContent: string;
 
   constructor(folderPath: string, fileName: string) {
     const filePath = `${folderPath}/${fileName}`;
 
-    this.createdAt = (fs.statSync(filePath).mtime);
+    this.createdAt = fs.statSync(filePath).mtime;
     this.slug = fileName.replace(".md", "");
 
-    const matterObj = matter(fs.readFileSync(filePath, 'utf8'));
+    const matterObj = matter(fs.readFileSync(filePath, "utf8"));
     this.fileHeader = matterObj.data;
     this.fileContent = matterObj.content;
   }
@@ -36,32 +36,38 @@ class TranslateMarkdown {
       clickCount: this._fetchClickCount(),
 
       matterData: this.fileHeader,
-      matterContent: this.fileContent
-    }
+      matterContent: this.fileContent,
+    };
   }
 }
 
 export function getArticleList() {
-  const articleFileList = fs.readdirSync(PATH_OF_ARTICLES)
+  const articleFileList = fs.readdirSync(PATH_OF_ARTICLES);
 
-  const articleList = articleFileList.map(articleFileName => {
+  const articleList = articleFileList.map((articleFileName) => {
     try {
-      const article = new TranslateMarkdown(PATH_OF_ARTICLES, articleFileName)
-      return article.toJson()
-    } catch (e) { return null }
-  })
+      const article = new TranslateMarkdown(PATH_OF_ARTICLES, articleFileName);
+      return article.toJson();
+    } catch (e) {
+      return null;
+    }
+  });
 
   // @ts-ignore-next-line
-  const cleanArticleList = articleList.filter(article => article !== null).sort((a, b) => { return moment(b.createdAt) - moment(a.createdAt) })
+  const cleanArticleList = articleList
+    .filter((article) => article !== null)
+    .sort((a, b) => {
+      return moment(b.createdAt) - moment(a.createdAt);
+    });
 
   // TODO: remove this JSON hack
-  return JSON.parse(JSON.stringify(cleanArticleList))
+  return JSON.parse(JSON.stringify(cleanArticleList));
 }
 
 export function getArticleBySlug(slug: string) {
-  const article = new TranslateMarkdown(PATH_OF_ARTICLES, slug + ".md")
-  return article.toJson()
+  const article = new TranslateMarkdown(PATH_OF_ARTICLES, slug + ".md");
+  return article.toJson();
 
   // TODO: remove this JSON hack
-  return JSON.parse(JSON.stringify(article))
+  return JSON.parse(JSON.stringify(article));
 }

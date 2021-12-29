@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 export default function Navigation() {
   return (
@@ -9,15 +9,16 @@ export default function Navigation() {
       <div className="flex">
         <NavigationItem relativeHref="/articles" title="Articles" />
       </div>
-    </nav >
-  )
+    </nav>
+  );
 }
-
 
 function NavigationItem({ title, relativeHref }) {
   return (
     <Link href={relativeHref}>
-      <a className="block px-3 py-2 ml-2 text-gray-700 rounded hover:bg-gray-100">{title}</a>
+      <a className="block px-3 py-2 ml-2 text-gray-700 rounded hover:bg-gray-100">
+        {title}
+      </a>
     </Link>
-  )
+  );
 }

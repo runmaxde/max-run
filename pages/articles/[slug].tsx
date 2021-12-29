@@ -1,32 +1,32 @@
-import { getArticleBySlug, getArticleList } from "@/lib/markdown"
-import { getRelativeDate } from "@/lib/date"
-import { P, H1, H2, H3, Table, TheCodeBlock, MdLink, MdLi } from "@/comp/UI"
-import { MDXRemote } from 'next-mdx-remote'
-import { serialize } from 'next-mdx-remote/serialize'
-import Meta from "@/comp/Meta"
+import { getArticleBySlug, getArticleList } from "@/lib/markdown";
+import { getRelativeDate } from "@/lib/date";
+import { P, H1, H2, H3, Table, TheCodeBlock, MdLink, MdLi } from "@/comp/UI";
+import { MDXRemote } from "next-mdx-remote";
+import { serialize } from "next-mdx-remote/serialize";
+import Meta from "@/comp/Meta";
 
 export function getStaticPaths() {
-  const paths = getArticleList().map(article => {
-    return "/articles/" + article.slug
-  })
+  const paths = getArticleList().map((article) => {
+    return "/articles/" + article.slug;
+  });
 
   return {
     paths: paths,
-    fallback: false
-  }
+    fallback: false,
+  };
 }
-
 
 export async function getStaticProps(context) {
-  const slug = context.params.slug
+  const slug = context.params.slug;
 
-  const article = getArticleBySlug(slug)
-  const mdx = await serialize(article.matterContent, { scope: article.matterData })
+  const article = getArticleBySlug(slug);
+  const mdx = await serialize(article.matterContent, {
+    scope: article.matterData,
+  });
   return {
-    props: { article, mdx }
-  }
+    props: { article, mdx },
+  };
 }
-
 
 export default function ArticleItem({ article, mdx }) {
   const components = {
@@ -39,7 +39,7 @@ export default function ArticleItem({ article, mdx }) {
     a: (props) => <MdLink {...props} />,
     li: (props) => <MdLi {...props} />,
     BigSpacer: () => <div className="mt-32" />,
-  }
+  };
 
   return (
     <>
@@ -51,5 +51,5 @@ export default function ArticleItem({ article, mdx }) {
       </div>
       <MDXRemote {...mdx} components={components} />
     </>
-  )
+  );
 }

@@ -1,9 +1,8 @@
-import Head from 'next/head'
+import Head from "next/head";
 
 export default function Meta({ pageTitle }) {
-
-  const defaultTitle = 'max'
-  const customTitle = pageTitle ? `${pageTitle} | max` : defaultTitle
+  const defaultTitle = "max";
+  const customTitle = pageTitle ? `${pageTitle} | max` : defaultTitle;
 
   return (
     <>
@@ -11,5 +10,5 @@ export default function Meta({ pageTitle }) {
         <title>{customTitle}</title>
       </Head>
     </>
-  )
+  );
 }
