@@ -3,5 +3,9 @@
   link: https://jakearchibald.github.io/svgomg/
 
 - head: Excalidraw
-  text: Whiteboard app, probably the easiest way to get your thoughts on screen
+  text: Whiteboard app, probably the easiest way to get your thoughts on screen.
   link: https://excalidraw.com/
+ 
+- head: Autotracer
+  text: Fast image to vector converter.
+  link: https://www.autotracer.org/
