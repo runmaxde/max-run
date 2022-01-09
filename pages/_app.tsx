@@ -5,7 +5,7 @@ import axios from "axios"
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
     const pathname = window.location.pathname
-    axios.post("/api/clicks", { params: { pathname } })
+    axios.post("/api/clicks", { params: { pathname } }).catch(() => {})
   }, [])
 
   return (
