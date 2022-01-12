@@ -12,4 +12,5 @@ fields:
   name: summary
   label: summary
 pages:
+- _data/articles/test-2-with-forestry.md
 - _data/articles/test.md
