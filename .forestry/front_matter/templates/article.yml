@@ -11,3 +11,5 @@ fields:
 - type: text
   name: summary
   label: summary
+pages:
+- _data/articles/test.md
