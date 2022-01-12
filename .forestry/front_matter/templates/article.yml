@@ -1,4 +1,13 @@
 ---
 label: Article
 hide_body: false
-fields: []
+fields:
+- name: content
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: Content
