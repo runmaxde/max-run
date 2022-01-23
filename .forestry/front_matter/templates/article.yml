@@ -12,6 +12,16 @@ fields:
 - type: text
   name: summary
   label: summary
+- name: last_edit
+  type: datetime
+  description: ''
+  config:
+    required: false
+    date_format: 
+    time_format: 
+    display_utc: false
+  default: now
+  label: last edit
 pages:
 - _data/articles/macos-ssh-keys-with-ssh-agent.md
 - _data/articles/test-2-with-forestry.md
