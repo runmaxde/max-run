@@ -12,5 +12,6 @@ fields:
   name: summary
   label: summary
 pages:
+- _data/articles/macos-ssh-keys-with-ssh-agent.md
 - _data/articles/test-2-with-forestry.md
 - _data/articles/test.md
