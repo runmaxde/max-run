@@ -5,8 +5,9 @@ fields:
 - type: text
   name: title
   label: title
-- type: text
-  name: tags
+- name: tag
+  type: tag_list
+  default: []
   label: tags
 - type: text
   name: summary
