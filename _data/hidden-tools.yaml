@@ -11,5 +11,9 @@
   link: https://www.autotracer.org/
 
 - head: Profile Picture Maker
-  text: Make an awesome profile picture from any photo
+  text: Make an awesome profile picture from any photo.
   link: https://pfpmaker.com/
+
+- head: Quick Database Diagrams
+  text: Draw DB schemas without leaving the keyboard.
+  link: https://app.quickdatabasediagrams.com/
