@@ -17,3 +17,11 @@
 - head: Quick Database Diagrams
   text: Draw DB schemas without leaving the keyboard.
   link: https://app.quickdatabasediagrams.com/
+
+- head: Secret 
+  text: Secret will protect you when sharing information, you can use it to send text without worrying about hijacked.
+  link: https://secret.gl/
+
+- head: NPM Package Viewer
+  text: View source & copy cdn url of NPM packages
+  link: https://cdn.unix.bio/
