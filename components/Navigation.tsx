@@ -9,6 +9,9 @@ export default function Navigation() {
       <div className="flex">
         <NavigationItem relativeHref="/articles" title="Articles" />
       </div>
+      <div className="flex">
+        <NavigationItem relativeHref="/hidden-tools" title="WebTools" />
+      </div>
     </nav>
   );
 }
