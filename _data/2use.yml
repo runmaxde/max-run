@@ -1,0 +1,11 @@
+item: 
+  - name: Linear
+    short: A better way to build products
+    url: https://linear.app/
+    tags: 
+      - macos
+      - github
+      - gitlab
+      - app
+      - free
+    sum: Linear is a project management tool designed to streamline the tracking, organization, and completion of software projects. It emphasizes efficiency and clarity through a sleek interface, integrating seamlessly with other tools used by developers. Its features are geared towards improving team collaboration and accelerating product cycles.
